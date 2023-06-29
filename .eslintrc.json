@@ -15,7 +15,8 @@
     },
     "plugins": ["react", "prettier"],
     "rules": {
-        "@typescript-eslint/no-floating-promises": "off"
+        "@typescript-eslint/no-floating-promises": "off",
+        "@typescript-eslint/strict-boolean-expressions": "off"
     },
     "settings": {
         "react": {

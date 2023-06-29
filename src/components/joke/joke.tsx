@@ -1,5 +1,5 @@
 import React from 'react'
-import './joke.css'
+import './joke.scss'
 
 interface JokeProps {
     joke: ChuckNorrisJoke

@@ -20,6 +20,7 @@
             "@components/*": ["components/*"],
             "@pages/*": ["pages/*"],
             "@models/*": ["models/*"],
+            "@assets/*": ["assets/*"],
             "@services/*": ["services/*"]
         }
     },

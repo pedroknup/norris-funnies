@@ -1,12 +1,14 @@
-export default async function fetchChuckNorrisJokes(count: number) {
+import { type ChuckNorrisJoke } from '@models/chuck-norris-joke'
+
+export default async function fetchChuckNorrisJokes(): Promise<ChuckNorrisJoke> {
     try {
-        const response = await fetch(
-            `https://api.chucknorris.io/jokes/random/${count}`,
-        )
+        const response = await fetch(`https://api.chucknorris.io/jokes/random`)
         const data = await response.json()
-        const joke: ChuckNorrisJoke = { 
+        const joke: ChuckNorrisJoke = {
             iconUrl: data.icon_url,
-            ...data
+            id: data.id,
+            url: data.url,
+            value: data.value,
         }
         return joke
     } catch (error) {

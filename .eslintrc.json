@@ -14,7 +14,9 @@
         "project": "./tsconfig.json"
     },
     "plugins": ["react", "prettier"],
-    "rules": {},
+    "rules": {
+        "@typescript-eslint/no-floating-promises": "off"
+    },
     "settings": {
         "react": {
             "version": "detect"

@@ -1,6 +1,6 @@
 import React from 'react'
 import './home-page.scss'
-import Spinner from '@components/spinner'
+import RippleLoader from '@components/ripple-loader'
 import Joke from '@components/joke'
 import fetchChuckNorrisJokes from '@services/chuck-norris-service'
 import { type ChuckNorrisJoke } from '@models/chuck-norris-joke'
@@ -41,6 +41,7 @@ function HomePage(): React.ReactNode {
     React.useEffect(() => {
         fetchRandomJoke()
         const intervalId = getNewJokeEvery5Seconds()
+
         return () => {
             clearTimeout(intervalId)
         }
@@ -50,17 +51,14 @@ function HomePage(): React.ReactNode {
         <div className="home-page">
             <h1>Home Page</h1>
 
-            {isLoadingJokes ? (
-                <div className="spinner-container">
-                    <Spinner />
-                </div>
-            ) : (
-                <div className="jokes-container">
-                    {jokes.map((joke, index) => (
-                        <Joke key={index} joke={joke} />
-                    ))}
-                </div>
-            )}
+            <div className="spinner-container">
+                <RippleLoader isLoading={isLoadingJokes} />
+            </div>
+            <div className="jokes-container">
+                {jokes.map((joke, index) => (
+                    <Joke key={index} joke={joke} />
+                ))}
+            </div>
         </div>
     )
 }

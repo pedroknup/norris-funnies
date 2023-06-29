@@ -1,13 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
-import './home-page.css';
+import React from 'react'
+import './home-page.css'
 
-function HomePage() {
-  return (
-    <div className="home-page">
-      
-    </div>
-  );
+function HomePage(): React.ReactNode {
+    return <div className="home-page">Home Page</div>
 }
 
-export default HomePage;
+export default HomePage

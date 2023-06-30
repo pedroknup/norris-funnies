@@ -26,5 +26,5 @@
             "@hooks/*": ["hooks/*"]
         }
     },
-    "include": ["src"]
+    "include": ["src", "__mocks__"]
 }

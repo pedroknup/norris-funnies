@@ -5,6 +5,7 @@ import HomePage from './home-page'
 import fetchChuckNorrisJokes from '@services/chuck-norris-service'
 
 jest.mock('@services/chuck-norris-service')
+jest.mock('react-animated-list')
 const mockedFetchChuckNorrisJoke = jest.fn()
 
 describe('HomePage', () => {

@@ -3,6 +3,7 @@ import './home-page.scss'
 import RippleLoader from '@components/ripple-loader'
 import Joke from '@components/joke'
 import useChuckNorrisJokes from '@hooks/useChuckNorrisJokes'
+import { AnimatedList } from 'react-animated-list'
 
 function HomePage(): React.ReactNode {
     const { jokes, isLoadingJokes, handleJokeLikeClick } = useChuckNorrisJokes()
@@ -23,16 +24,18 @@ function HomePage(): React.ReactNode {
                 <RippleLoader isLoading={isLoadingJokes} />
             </div>
             <div className="jokes-container" data-testid="jokes-container">
-                {jokes.map(joke => (
-                    <Joke
-                        onJokeLikeClick={() => {
-                            handleJokeLikeClick(joke.id)
-                        }}
-                        key={joke.id}
-                        joke={joke}
-                        data-testid="joke"
-                    />
-                ))}
+                <AnimatedList animation={'grow'}>
+                    {jokes.map(joke => (
+                        <Joke
+                            onJokeLikeClick={() => {
+                                handleJokeLikeClick(joke.id)
+                            }}
+                            key={joke.id}
+                            joke={joke}
+                            data-testid="joke"
+                        />
+                    ))}
+                </AnimatedList>
             </div>
         </div>
     )

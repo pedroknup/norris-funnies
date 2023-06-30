@@ -1,7 +1,6 @@
 import React from 'react'
 import './home-page.scss'
 import RippleLoader from '@components/ripple-loader'
-import { AnimatedList } from 'react-animated-list'
 import Joke from '@components/joke'
 import useChuckNorrisJokes from '@hooks/useChuckNorrisJokes'
 
@@ -23,24 +22,17 @@ function HomePage(): React.ReactNode {
             <div className="spinner-container">
                 <RippleLoader isLoading={isLoadingJokes} />
             </div>
-            <div className="jokes-container">
-                <AnimatedList
-                    initialAnimationDuration={1000}
-                    animation={'grow'}
-                    animationProps={{
-                        timeout: 5000,
-                    }}
-                >
-                    {jokes.map(joke => (
-                        <Joke
-                            onJokeLikeClick={() => {
-                                handleJokeLikeClick(joke.id)
-                            }}
-                            key={joke.id}
-                            joke={joke}
-                        />
-                    ))}
-                </AnimatedList>
+            <div className="jokes-container" data-testid="jokes-container">
+                {jokes.map(joke => (
+                    <Joke
+                        onJokeLikeClick={() => {
+                            handleJokeLikeClick(joke.id)
+                        }}
+                        key={joke.id}
+                        joke={joke}
+                        data-testid="joke"
+                    />
+                ))}
             </div>
         </div>
     )

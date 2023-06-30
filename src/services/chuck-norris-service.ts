@@ -10,9 +10,11 @@ export default async function fetchChuckNorrisJoke(): Promise<ChuckNorrisJoke | 
             url: data.url,
             value: data.value,
         }
+
         return joke
     } catch (error) {
         console.error('Error fetching jokes:', error)
+
         return null
     }
 }

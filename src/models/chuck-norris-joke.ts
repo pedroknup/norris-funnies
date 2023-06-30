@@ -1,7 +1,7 @@
 export interface ChuckNorrisJoke {
-    iconUrl: string
+    iconUrl?: string
     id: string
-    url: string
+    url?: string
     value: string
     liked?: boolean
 }

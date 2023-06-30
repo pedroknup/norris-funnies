@@ -22,7 +22,7 @@
     "scripts": {
         "start": "DISABLE_ESLINT_PLUGIN=true craco start",
         "build": "craco build",
-        "test": "craco test --verbose -- --config=jest.config.js --experimental-vm-modules --watchAll=false",
+        "test": "craco test --verbose -- --config=jest.config.js --watchAll=false",
         "eject": "react-scripts eject",
         "typescript": "tsc --project tsconfig.json --noEmit",
         "lint": "eslint src --color",

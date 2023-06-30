@@ -64,7 +64,7 @@ describe('useChuckNorrisJokes', () => {
         })
 
         act(() => {
-            result.current.handleJokeLikeClick('1')
+            result.current.handleJokeLikeToggle('1')
         })
 
         await waitForNextUpdate()
@@ -75,7 +75,7 @@ describe('useChuckNorrisJokes', () => {
         )
 
         act(() => {
-            result.current.handleJokeLikeClick('2')
+            result.current.handleJokeLikeToggle('2')
         })
 
         mockedJoke2.liked = true
@@ -85,7 +85,7 @@ describe('useChuckNorrisJokes', () => {
         )
 
         act(() => {
-            result.current.handleJokeLikeClick('1')
+            result.current.handleJokeLikeToggle('1')
         })
 
         expect(result.current.jokes[0].liked).toBe(false)

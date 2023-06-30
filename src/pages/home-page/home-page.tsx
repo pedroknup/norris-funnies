@@ -9,7 +9,8 @@ const TITLE = 'Norris Funnies'
 const SUBTITLE = 'Endless Chuckles with Chuck Norris Jokes Every 5 Seconds'
 
 function HomePage(): React.ReactNode {
-    const { jokes, isLoadingJokes, handleJokeLikeClick } = useChuckNorrisJokes()
+    const { jokes, isLoadingJokes, handleJokeLikeToggle } =
+        useChuckNorrisJokes()
 
     return (
         <div className="home-page">
@@ -28,8 +29,8 @@ function HomePage(): React.ReactNode {
                 <AnimatedList animation={'grow'}>
                     {jokes.map(joke => (
                         <Joke
-                            onJokeLikeClick={() => {
-                                handleJokeLikeClick(joke.id)
+                            onLikeToggle={() => {
+                                handleJokeLikeToggle(joke.id)
                             }}
                             key={joke.id}
                             joke={joke}

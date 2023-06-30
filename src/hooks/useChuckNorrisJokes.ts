@@ -8,7 +8,7 @@ const FETCH_INTERVAL = 5000
 interface ChuckNorrisJokeHookType {
     jokes: ChuckNorrisJoke[]
     isLoadingJokes: boolean
-    handleJokeLikeClick: (likedJokeId: string) => void
+    handleJokeLikeToggle: (likedJokeId: string) => void
     addJoke: (newJoke: ChuckNorrisJoke) => void
 }
 
@@ -69,7 +69,7 @@ function useChuckNorrisJokes(): ChuckNorrisJokeHookType {
         }
     }, [])
 
-    function handleJokeLikeClick(likedJokeId: string): void {
+    function handleJokeLikeToggle(likedJokeId: string): void {
         const foundJoke = jokes.find(joke => joke.id === likedJokeId)
         if (!foundJoke) return
 
@@ -95,7 +95,7 @@ function useChuckNorrisJokes(): ChuckNorrisJokeHookType {
     return {
         jokes,
         isLoadingJokes,
-        handleJokeLikeClick,
+        handleJokeLikeToggle,
         addJoke,
     }
 }

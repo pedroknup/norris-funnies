@@ -5,10 +5,10 @@ import { type ChuckNorrisJoke } from '@models/chuck-norris-joke'
 
 interface JokeProps {
     joke: ChuckNorrisJoke
-    onJokeLikeClick?: () => void
+    onLikeToggle?: () => void
 }
 
-function Joke({ joke, onJokeLikeClick }: JokeProps): React.ReactNode {
+function Joke({ joke, onLikeToggle }: JokeProps): React.ReactNode {
     const [shouldTriggerAnimation, setShouldTriggerAnimation] =
         React.useState<boolean>(false)
 
@@ -19,7 +19,7 @@ function Joke({ joke, onJokeLikeClick }: JokeProps): React.ReactNode {
                 setShouldTriggerAnimation(false)
             }, 1000)
         }
-        onJokeLikeClick?.()
+        onLikeToggle?.()
     }
 
     return (

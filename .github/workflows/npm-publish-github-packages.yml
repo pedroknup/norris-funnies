@@ -20,7 +20,10 @@ jobs:
 
     - name: Install dependencies
       run: npm install --legacy-peer-deps
-
+      
+    - name: Run Jest tests
+      run: npm test
+      
     - name: Build
       run: npm run build
 

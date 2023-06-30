@@ -2,8 +2,8 @@ import { type ChuckNorrisJoke } from '@models/chuck-norris-joke'
 import React from 'react'
 import fetchChuckNorrisJokes from '@services/chuck-norris-service'
 
-const MAX_JOKES = 3
-const FETCH_INTERVAL = 2000
+const MAX_JOKES = 10
+const FETCH_INTERVAL = 5000
 
 interface ChuckNorrisJokeHookType {
     jokes: ChuckNorrisJoke[]

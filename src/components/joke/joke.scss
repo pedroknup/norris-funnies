@@ -1,20 +1,23 @@
+@import '@/mixins.scss';
+
 .joke {
     display: flex;
     justify-content: space-between;
     gap: 2rem;
 
-    width: 100%;
-    max-width: 50vw;
     height: 80px;
     border: 1px solid;
     margin: auto auto 0.5rem auto;
     padding: 1rem;
     border-radius: 10px;
-    background-color: #161b2289;
+    background-color: #161b22da;
     border: 1px solid #434a51b0;
     color: #eceef1;
-
     text-align: left;
+
+    @include respond-to(large) {
+        max-width: 50vw;
+    }
 
     .heart-button {
         padding: 4px;

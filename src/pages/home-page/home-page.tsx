@@ -5,7 +5,8 @@ import Joke from '@components/joke'
 import fetchChuckNorrisJokes from '@services/chuck-norris-service'
 import { type ChuckNorrisJoke } from '@models/chuck-norris-joke'
 
-const FETCH_INTERVAL = 5000
+const FETCH_INTERVAL = 2000
+const MAX_JOKES = 5
 
 function HomePage(): React.ReactNode {
     const [jokes, setJokes] = React.useState<ChuckNorrisJoke[]>([])
@@ -13,9 +14,19 @@ function HomePage(): React.ReactNode {
 
     function addJoke(newJoke: ChuckNorrisJoke): void {
         setJokes(prevJokes => {
-            if (prevJokes.length === 10) {
-                // Remove the oldest joke ([9]) by slicing the array
-                prevJokes = prevJokes.slice(0, 9)
+            if (prevJokes.length >= MAX_JOKES) {
+                const jokeToRemove = prevJokes
+                    .slice()
+                    .reverse()
+                    .filter(joke => !joke.liked)[0]
+
+                if (!jokeToRemove) return prevJokes
+
+                const updatedJokes = prevJokes
+                    .slice()
+                    .filter(joke => joke.id !== jokeToRemove.id)
+
+                return [newJoke, ...updatedJokes]
             }
 
             return [newJoke, ...prevJokes]
@@ -41,22 +52,71 @@ function HomePage(): React.ReactNode {
     React.useEffect(() => {
         fetchRandomJoke()
         const intervalId = getNewJokeEvery5Seconds()
+        const savedJokesRaw = localStorage.getItem('likedJokes')
+        if (savedJokesRaw) {
+            const savedJokes = JSON.parse(savedJokesRaw)
+            savedJokes.forEach((joke: ChuckNorrisJoke) => {
+                addJoke(joke)
+            })
+        }
 
         return () => {
             clearTimeout(intervalId)
         }
     }, [])
 
+    const handleJokeLikeClick = (likedJokeId: string): void => {
+        const foundJoke = jokes.find(joke => joke.id === likedJokeId)
+        if (!foundJoke) return
+
+        const likedJokesCount = jokes.filter(joke => joke.liked).length
+        if (likedJokesCount >= MAX_JOKES && !foundJoke.liked) {
+            console.log('max jokes reached')
+
+            return
+        }
+
+        const updatedJokes = jokes.map(joke =>
+            joke.id === likedJokeId ? { ...joke, liked: !joke.liked } : joke,
+        )
+
+        updateLocalStorageJokes(updatedJokes.filter(joke => joke.liked))
+        setJokes(updatedJokes)
+    }
+
+    const updateLocalStorageJokes = (jokes: ChuckNorrisJoke[]): void => {
+        localStorage.setItem('likedJokes', JSON.stringify(jokes))
+    }
+
     return (
         <div className="home-page">
-            <h1>Home Page</h1>
+            <div className="background-wrapper">
+                <img src="assets/chuck-norris-background.png" />
+            </div>
+            <div className="title-wrapper">
+                <h1 className="title">Chuck Norris Jokes</h1>
+                <span className="subtitle">Lorem ipsum dolor sit amet</span>
+            </div>
+            <button
+                onClick={() => {
+                    localStorage.clear()
+                }}
+            >
+                reset cache
+            </button>
 
             <div className="spinner-container">
                 <RippleLoader isLoading={isLoadingJokes} />
             </div>
             <div className="jokes-container">
-                {jokes.map((joke, index) => (
-                    <Joke key={index} joke={joke} />
+                {jokes.map(joke => (
+                    <Joke
+                        onJokeLikeClick={() => {
+                            handleJokeLikeClick(joke.id)
+                        }}
+                        key={joke.id}
+                        joke={joke}
+                    />
                 ))}
             </div>
         </div>

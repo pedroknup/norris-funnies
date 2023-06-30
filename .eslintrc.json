@@ -16,7 +16,11 @@
     "plugins": ["react", "prettier"],
     "rules": {
         "@typescript-eslint/no-floating-promises": "off",
-        "@typescript-eslint/strict-boolean-expressions": "off"
+        "@typescript-eslint/strict-boolean-expressions": "off",
+        "padding-line-between-statements": [
+            "error",
+            { "blankLine": "always", "prev": "*", "next": "return" }
+        ]
     },
     "settings": {
         "react": {

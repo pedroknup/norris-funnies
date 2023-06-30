@@ -9,6 +9,7 @@ interface ChuckNorrisJokeHookType {
     jokes: ChuckNorrisJoke[]
     isLoadingJokes: boolean
     handleJokeLikeClick: (likedJokeId: string) => void
+    addJoke: (newJoke: ChuckNorrisJoke) => void
 }
 
 function useChuckNorrisJokes(): ChuckNorrisJokeHookType {
@@ -91,7 +92,12 @@ function useChuckNorrisJokes(): ChuckNorrisJokeHookType {
         localStorage.setItem('likedJokes', JSON.stringify(jokes))
     }
 
-    return { jokes, isLoadingJokes, handleJokeLikeClick }
+    return {
+        jokes,
+        isLoadingJokes,
+        handleJokeLikeClick,
+        addJoke,
+    }
 }
 
 export default useChuckNorrisJokes

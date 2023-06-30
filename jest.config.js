@@ -4,8 +4,9 @@ const { compilerOptions } = require('./tsconfig')
 module.exports = {
     preset: 'ts-jest',
     testEnvironment: 'jsdom',
+    rootDir: '.',
     transform: {
-        '^.+\\.svg$': '<rootDir>/svgTransform.js',
+        '^.+\\.svg$': './svgTransform.js',
     },
     moduleNameMapper: {
         ...pathsToModuleNameMapper(compilerOptions.paths, {

@@ -9,11 +9,30 @@ interface JokeProps {
 }
 
 function Joke({ joke, onJokeLikeClick }: JokeProps): React.ReactNode {
+    const iconRef = React.useRef<SVGSVGElement>(null)
+    const [shouldTriggerAnimation, setShouldTriggerAnimation] =
+        React.useState<boolean>(false)
+
+    const handleLikeClick = (): void => {
+        if (!joke.liked) {
+            setShouldTriggerAnimation(true)
+            setTimeout(() => {
+                setShouldTriggerAnimation(false)
+            }, 1000)
+        }
+        onJokeLikeClick?.()
+    }
+
     return (
         <div className={`joke ${joke.liked ? 'liked' : ''}`} data-testid="joke">
             <span>{joke.value}</span>
-            <button onClick={onJokeLikeClick} className="heart-button">
-                <OutlineHeartIcon />
+            <button
+                onClick={handleLikeClick}
+                className={`heart-button ${
+                    shouldTriggerAnimation ? 'liked' : ''
+                }`}
+            >
+                <OutlineHeartIcon ref={iconRef} />
             </button>
         </div>
     )

@@ -14,16 +14,11 @@ function HomePage(): React.ReactNode {
                 <img src="assets/chuck-norris-background.png" />
             </div>
             <div className="title-wrapper">
-                <h1 className="title">Chuck Norris Jokes</h1>
-                <span className="subtitle">Lorem ipsum dolor sit amet</span>
+                <h1 className="title">Norris Funnies</h1>
+                <span className="subtitle">
+                    Endless Chuckles with Chuck Norris Jokes Every 5 Seconds
+                </span>
             </div>
-            <button
-                onClick={() => {
-                    localStorage.clear()
-                }}
-            >
-                reset cache
-            </button>
 
             <div className="spinner-container">
                 <RippleLoader isLoading={isLoadingJokes} />

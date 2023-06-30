@@ -1,6 +1,6 @@
 import React from 'react'
 import './joke.scss'
-import { ReactComponent as OutlineHeartIcon } from '@assets/icons/heart.svg'
+import OutlineHeartIcon from '@assets/icons/heart'
 import { type ChuckNorrisJoke } from '@models/chuck-norris-joke'
 
 interface JokeProps {
@@ -9,7 +9,6 @@ interface JokeProps {
 }
 
 function Joke({ joke, onJokeLikeClick }: JokeProps): React.ReactNode {
-    const iconRef = React.useRef<SVGSVGElement>(null)
     const [shouldTriggerAnimation, setShouldTriggerAnimation] =
         React.useState<boolean>(false)
 
@@ -31,8 +30,9 @@ function Joke({ joke, onJokeLikeClick }: JokeProps): React.ReactNode {
                 className={`heart-button ${
                     shouldTriggerAnimation ? 'liked' : ''
                 }`}
+                data-testid="like-button"
             >
-                <OutlineHeartIcon ref={iconRef} />
+                <OutlineHeartIcon />
             </button>
         </div>
     )

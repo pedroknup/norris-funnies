@@ -5,9 +5,6 @@ module.exports = {
     preset: 'ts-jest',
     testEnvironment: 'jsdom',
     rootDir: '.',
-    transform: {
-        '^.+\\.svg$': './svgTransform.js',
-    },
     moduleNameMapper: {
         ...pathsToModuleNameMapper(compilerOptions.paths, {
             prefix: '<rootDir>/src/',

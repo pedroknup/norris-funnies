@@ -3,4 +3,5 @@ export interface ChuckNorrisJoke {
     id: string
     url: string
     value: string
+    liked?: boolean
 }

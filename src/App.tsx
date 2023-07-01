@@ -1,12 +1,11 @@
 import React from 'react'
-import HomePage from '@pages/home-page/'
-
 import './App.scss'
+import Router from './router'
 
 function App(): React.ReactNode {
     return (
         <div className="App">
-            <HomePage />
+            <Router />
         </div>
     )
 }

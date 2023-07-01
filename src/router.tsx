@@ -11,7 +11,7 @@ const Router = (): React.ReactNode => {
             <Navbar routes={routes} />
             <Routes>
                 {routes.map(({ path, component }) => (
-                    <Route key={path} path={path} element={component()} />
+                    <Route key={path} path={path} element={component?.()} />
                 ))}
             </Routes>
         </BrowserRouter>

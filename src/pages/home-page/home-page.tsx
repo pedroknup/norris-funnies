@@ -6,7 +6,10 @@ import useChuckNorrisJokes from '@hooks/useChuckNorrisJokes'
 import { AnimatedList } from 'react-animated-list'
 
 const TITLE = 'Norris Funnies'
-const SUBTITLE = 'Endless Chuckles with Chuck Norris Jokes Every 5 Seconds'
+const SUBTITLE =
+    'Generating jokes so funny, even Chuck Norris cracks a smile 🤣'
+
+const BACKGROUND_URL = `${process.env.PUBLIC_URL}/assets/chuck-norris-background.png`
 
 function HomePage(): React.ReactNode {
     const { jokes, isLoadingJokes, handleJokeLikeToggle } =
@@ -15,7 +18,7 @@ function HomePage(): React.ReactNode {
     return (
         <div className="home-page">
             <div className="background-wrapper">
-                <img src="assets/chuck-norris-background.png" />
+                <img src={BACKGROUND_URL} />
             </div>
             <div className="title-wrapper">
                 <h1 className="title">{TITLE}</h1>

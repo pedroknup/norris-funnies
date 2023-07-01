@@ -3,12 +3,13 @@
 .home-page {
     display: flex;
     flex-direction: column;
-    padding: 3rem;
+    padding: 1rem;
     gap: 1rem;
     justify-content: space-between;
 
     @include respond-to(large) {
         flex-direction: row;
+        padding: 3rem;
     }
 }
 
@@ -32,30 +33,38 @@
         padding: 12px;
         border-radius: 5px;
         font-family: arial;
-        font-size: 3em;
+
         margin: 0;
         opacity: 0.9;
         width: fit-content;
+        font-size: 2rem;
+        margin: auto;
+
+        @include respond-to(large) {
+            margin: 0;
+            font-size: 3em;
+        }
     }
 
     .subtitle {
-        font-size: 1.5rem;
+        font-size: 1rem;
         font-weight: 500;
         color: #dbdbdbeb;
         width: 20rem;
         margin: auto;
         text-shadow: 3px 3px 9px rgba(0, 0, 0, 0.5);
-    
+
         @include respond-to(large) {
             margin: 0;
+            font-size: 1.5rem;
         }
     }
 }
 
 .spinner-container {
     position: fixed;
-    top: 3.6rem;
-    left: 3.6rem;
+    top: .6rem;
+    left: .6rem;
 }
 
 .background-wrapper {

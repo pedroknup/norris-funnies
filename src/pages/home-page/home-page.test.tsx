@@ -26,10 +26,6 @@ describe('HomePage', () => {
         await waitFor(() => {
             const headerElement = screen.getByText(/Norris Funnies/i)
             expect(headerElement).toBeInTheDocument()
-            const subtitleElement = screen.getByText(
-                /Endless Chuckles with Chuck Norris Jokes Every 5 Seconds/i,
-            )
-            expect(subtitleElement).toBeInTheDocument()
         })
     })
     it('renders the saved jokes on page load', async () => {

@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Norris Funnies
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+Check the live website [here](https://pedroknup.github.io/norris-funnies/).
 
 ## Available Scripts
 

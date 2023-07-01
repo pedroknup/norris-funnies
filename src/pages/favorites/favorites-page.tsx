@@ -30,18 +30,28 @@ function FavoritesPage(): React.ReactNode {
             </div>
 
             <div className="jokes-container" data-testid="jokes-container">
-                <AnimatedList animation={'grow'}>
-                    {jokes.map(joke => (
-                        <Joke
-                            onLikeToggle={() => {
-                                handleJokeLikeToggle(joke.id)
-                            }}
-                            key={joke.id}
-                            joke={joke}
-                            data-testid="joke"
-                        />
-                    ))}
-                </AnimatedList>
+                {jokes.length === 0 ? (
+                    <div className="no-jokes-message">
+                        {`You haven't liked any jokes yet.`}
+                        <br />
+                        <br />
+                        {`"Chuck Norris hasn't liked any jokes yet, because every joke likes Chuck Norris before he even hears it."`}
+                    </div>
+                ) : (
+                    <AnimatedList animation={'grow'}>
+                        {}
+                        {jokes.map(joke => (
+                            <Joke
+                                onLikeToggle={() => {
+                                    handleJokeLikeToggle(joke.id)
+                                }}
+                                key={joke.id}
+                                joke={joke}
+                                data-testid="joke"
+                            />
+                        ))}
+                    </AnimatedList>
+                )}
             </div>
         </div>
     )

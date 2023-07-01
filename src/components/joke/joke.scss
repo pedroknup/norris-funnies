@@ -17,12 +17,12 @@
     align-items: center;
     font-size: 12px;
     padding: 0.4rem;
+    overflow: scroll;
 
     @include respond-to(large) {
         max-width: 50vw;
         padding: 1rem;
         font-size: 16px;
-
     }
 
     .heart-button {

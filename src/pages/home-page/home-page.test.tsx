@@ -44,7 +44,6 @@ describe('HomePage', () => {
         render(<HomePage />)
 
         await waitFor(() => {
-            screen.debug()
             const jokeElement = screen.getByTestId('joke')
             expect(jokeElement).toBeInTheDocument()
         })

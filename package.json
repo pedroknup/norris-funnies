@@ -2,6 +2,7 @@
     "name": "chuck-norris",
     "version": "0.1.0",
     "private": true,
+    "homepage": "https://pedroknup.github.io/norris-funnies",
     "dependencies": {
         "@craco/craco": "^7.1.0",
         "@testing-library/jest-dom": "^5.16.5",
@@ -22,7 +23,7 @@
     "scripts": {
         "start": "DISABLE_ESLINT_PLUGIN=true craco start",
         "build": "craco build",
-        "test": "craco test --verbose -- --config=jest.config.js --watchAll=false",
+        "test": "craco test -- --config=jest.config.js",
         "eject": "react-scripts eject",
         "typescript": "tsc --project tsconfig.json --noEmit",
         "lint": "eslint src --color",

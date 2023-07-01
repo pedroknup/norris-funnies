@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/norris-funnies/static/css/main.665cb24a.css",
-    "main.js": "/norris-funnies/static/js/main.7abe39f2.js",
+    "main.css": "/norris-funnies/static/css/main.64ad5fbd.css",
+    "main.js": "/norris-funnies/static/js/main.550f7fb5.js",
     "static/js/787.ed566a31.chunk.js": "/norris-funnies/static/js/787.ed566a31.chunk.js",
     "index.html": "/norris-funnies/index.html",
-    "main.665cb24a.css.map": "/norris-funnies/static/css/main.665cb24a.css.map",
-    "main.7abe39f2.js.map": "/norris-funnies/static/js/main.7abe39f2.js.map",
+    "main.64ad5fbd.css.map": "/norris-funnies/static/css/main.64ad5fbd.css.map",
+    "main.550f7fb5.js.map": "/norris-funnies/static/js/main.550f7fb5.js.map",
     "787.ed566a31.chunk.js.map": "/norris-funnies/static/js/787.ed566a31.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.665cb24a.css",
-    "static/js/main.7abe39f2.js"
+    "static/css/main.64ad5fbd.css",
+    "static/js/main.550f7fb5.js"
   ]
 }
